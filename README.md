@@ -22,13 +22,6 @@
 - Iron nutrition - food components with bulma and forms. Add them and calculate total calories
 - Wiki countries - create a master-detail page using React routing
 
-# Next - day w7d4
-
-- Lifting states
-- Connect app to the backend
-- Building a REST API
-- Integrating the React app
-
 # Goals
 
 - Understand how to work with forms in React
@@ -39,4 +32,3 @@
 # Bonus
 
 More on React forms https://reactjs.org/docs/forms.html
-
