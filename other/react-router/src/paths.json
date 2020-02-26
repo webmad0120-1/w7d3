@@ -6,9 +6,5 @@
     "calculator": {
         "sectionName": "Calculator",
         "path" : "/calculator"
-    },
-    "about": {
-        "sectionName": "About",
-        "path" : "/about"
     }
 }

@@ -7,6 +7,7 @@ import Navigation from "./Navigation";
 import NotFound404 from "./notFound404";
 import MovieDetail from "./MovieDetail";
 import Calculator from "./Calculator";
+import Ticker from "./Ticker";
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,7 @@ class App extends Component {
     this.state = {
       movies: [
         {
+          id: 1,
           name: "The Shawshank Redemption",
           year: "1994",
           director: "Frank Darabont",
@@ -23,6 +25,7 @@ class App extends Component {
           rate: "9.3"
         },
         {
+          id: 2,
           name: "The Godfather",
           year: "1972",
           director: "Francis Ford Coppola",
@@ -31,6 +34,7 @@ class App extends Component {
           rate: "9.2"
         },
         {
+          id: 3,
           name: "The Godfather: Part II",
           year: "1974",
           director: "Francis Ford Coppola",
@@ -39,6 +43,7 @@ class App extends Component {
           rate: "9.0"
         },
         {
+          id: 4,
           name: "The Dark Knight",
           year: "2008",
           director: "Christopher Nolan",
@@ -47,19 +52,12 @@ class App extends Component {
           rate: "9.0"
         },
         {
+          id: 5,
           name: "12 Angry Men",
           year: "1957",
           director: "Sidney Lumet",
           duration: "1h 36min",
           genre: ["Crime", "Drama"],
-          rate: "8.9"
-        },
-        {
-          name: "Schindler's List",
-          year: "1993",
-          director: "Steven Spielberg",
-          duration: "3h 15min",
-          genre: ["Biography", "Drama", "History"],
           rate: "8.9"
         }
       ]
@@ -75,26 +73,27 @@ class App extends Component {
           <Switch>
             <Route
               exact
-              path="/movies"
-              render={() => {
-                return <Home movies={this.state.movies}></Home>;
-              }}
-            />
-            <Route
-              exact
-              path="/verPeli/:chosenMovie"
+              path="/movies/:id"
               render={props => {
-                debugger;
-                var chosenMovie = props.match.params.chosenMovie;
-                
+                let filteredMovies = this.state.movies.filter(movie => movie.id === +props.match.params.id)
 
                 return (
-                  <MovieDetail
-                    movie={this.state.movies[chosenMovie]}
-                  ></MovieDetail>
+                  <Home
+                    movies={filteredMovies}
+                  ></Home>
                 );
               }}
             />
+
+            <Route
+              exact
+              path="/movies"
+              render={() => {
+                let allMovies = this.state.movies
+                return <Home movies={allMovies}></Home>;
+              }}
+            />
+
             <Route
               path="/calculator"
               render={() => {
@@ -103,9 +102,15 @@ class App extends Component {
             />
 
             <Route
-              path="/hector"
+              path="/financial"
               render={() => {
-                return <About />;
+                return (
+                  <div>
+                    <Ticker price={Math.round(Math.random() * 300)} company="APPL"></Ticker>
+                    <Ticker price="300" company="BAIRES"></Ticker>
+                    <Ticker price="50" company="FUENLA"></Ticker>
+                  </div>
+                );
               }}
             />
 

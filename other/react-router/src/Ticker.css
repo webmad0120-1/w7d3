@@ -1,0 +1,10 @@
+.ticker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s;
+}
+
+.ticker h1 {
+    margin-right: 30px;
+}

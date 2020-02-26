@@ -7,10 +7,9 @@ const Navigation = () => {
     return (
         <nav>
             <ul>
-                <li><Link to={paths.movies.path}>{paths.movies.sectionName}</Link></li>
-                <li><Link to={paths.about.path}>{paths.about.sectionName}</Link></li>
-                <li><Link to={paths.calculator.path}>{paths.calculator.sectionName}</Link></li>
-                {/* <li><Link to={paths.aboutnoyear.path}>{paths.aboutnoyear.sectionName}</Link></li> */}
+                <li><Link to="/movies">Movies</Link></li>
+                <li><Link to="/calculator">Calculator</Link></li>
+                <li><Link to="/financial">Financial</Link></li>
             </ul>
         </nav>
     )
